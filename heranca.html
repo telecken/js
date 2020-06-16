@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript class further exercises</title>
+
+    <script>
+    class Conta { 
+      constructor() { 
+           this.saldo = 0; 
+        } 
+        teste=5;
+        deposita(valor) { 
+          this.saldo += valor; 
+        } 
+    } 
+
+    class ContaPoupanca extends Conta { 
+      constructor() {
+          super();
+           this.renda = 0; 
+        } 
+        var t2=3;
+       atualiza(indice) { 
+         this.saldo += this.saldo * indice; 
+       } 
+    }
+        c1= new Conta();
+        c2=new ContaPoupanca();
+        alert(c1.teste);
+        c2.deposita(5);
+        c2.atualiza(2);
+        alert(c2.saldo);
+
+    </script>
+  </head>
+
+  <body>
+    <p>This example</p>
+
+  </body>
+
+    

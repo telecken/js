@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript class further exercises</title>
+
+    <script>
+    class pessoa { 
+      constructor(nome,cpf) { 
+           this.nome = nome; 
+           this.cpf = cpf; 
+        } 
+          imprime() { 
+          let dado="<br>Nome:"+this.nome+"<br>CPF:"+this.cpf;
+          return dado; 
+        } 
+    } 
+
+    class aluno extends pessoa { 
+      constructor(nome, cpf, matricula) {
+          super(nome, cpf);
+           this.matricula = matricula; 
+        }  
+    }
+    class professor extends pessoa { 
+      constructor(nome, cpf, disciplinas) {
+          super(nome, cpf);
+          this.disciplinas = disciplinas; 
+        } 
+       
+    }
+    class turma { 
+      constructor(professor, alunos) {
+           this.professor = professor; 
+           this.alunos= alunos;
+        } 
+        ficha(){
+          let dados=this.professor.imprime();
+          dados+="<br>*******<br>Alunos"
+          for (let i=0; i< this.alunos.length ; i++)
+          {
+              dados+=this.alunos[i].imprime();
+          }
+          return dados;  
+        }
+       
+    }
+
+    let a1= new aluno("fulano",'73839','22222');
+    let a2= new aluno("ufjfkl",'73839','22222');
+    let a3= new aluno("fulano2",'73839','22222');
+    let a4= new aluno("fulano3",'73839','22222');
+    let p1= new professor("fulano3",'73839','22222');
+    let alunos= [a1,a2,a3,a4];
+    let t1=new turma(p1,alunos);
+    
+    </script>
+  </head>
+
+  <body>
+    <p id="mostra">Lista</p>
+    <script>
+    document.querySelector("#mostra").innerHTML=t1.ficha();
+    </script>
+  </body>
+
+    
